@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text('Hello World! ${calc.addOne(100)}'),
+          child: Text('Hello World! ${calc.addOne(1)}'),
         ),
       ),
     );

@@ -1,5 +1,5 @@
 name: example
-description: "A new Flutter project."
+description: "Example app to show how to create MVVM architecture"
 publish_to: 'none'
 version: 0.1.0
 
@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
   mvvm: 
     path: ../
+  hooks_riverpod: ^2.6.1
 
 dev_dependencies:
   flutter_test:
