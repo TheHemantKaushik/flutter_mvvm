@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm/mvvm.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,10 +10,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    final calc = Calculator();
+    return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text('Hello World!'),
+          child: Text('Hello World! ${calc.addOne(100)}'),
         ),
       ),
     );
