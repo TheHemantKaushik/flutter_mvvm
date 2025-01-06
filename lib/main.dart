@@ -1,5 +1,5 @@
-import 'package:example/configs/route_config.dart';
-import 'package:example/routes.g.dart';
+import 'package:flutter_mvvm/configs/route_config.dart';
+import 'package:flutter_mvvm/routes.g.dart';
 import 'package:flutter/material.dart';
 import 'package:routefly/routefly.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
