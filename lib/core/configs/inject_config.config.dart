@@ -12,7 +12,6 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
 import '../../modules/auth/auth_api.dart' as _i856;
-import '../../modules/auth/features/log_out/log_out_view_model.dart' as _i850;
 import '../../modules/post/post_repository.dart' as _i762;
 import '../../modules/post/post_service.dart' as _i67;
 import '../../modules/user/user_repository.dart' as _i188;
@@ -29,7 +28,6 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i850.LogOutViewModel>(() => _i850.LogOutViewModel());
     gh.lazySingleton<_i67.PostService>(() => _i67.PostServiceImpl());
     gh.lazySingleton<_i95.UserService>(() => _i95.UserServiceImpl());
     gh.lazySingleton<_i856.AuthApi>(() => _i856.AuthApiImpl());

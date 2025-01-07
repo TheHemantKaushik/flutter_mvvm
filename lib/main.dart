@@ -31,7 +31,7 @@ class MainApp extends HookConsumerWidget {
       key: RouteConfig.appNavigatorKey,
       routerConfig: Routefly.routerConfig(
         routes: routes,
-        middlewares: [RouteConfig.redirectMiddleware],
+        middlewares: [RouteConfig.middleware],
       ),
     );
   }

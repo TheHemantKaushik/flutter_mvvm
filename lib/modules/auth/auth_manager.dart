@@ -9,8 +9,9 @@ part 'auth_manager.g.dart';
 @Riverpod(keepAlive: true)
 class AuthManager extends _$AuthManager {
   @override
-  FutureOr<User?> build() {
-    return SharedPrefs.getUser();
+  Future<User?> build() async {
+    final userRes = await SharedPrefs.getUser();
+    return userRes.valueOrNull;
   }
 
   Future<AsyncValue<void>> login(String email, String password) async {
@@ -18,6 +19,16 @@ class AuthManager extends _$AuthManager {
     final res = await inject<AuthApi>().login(email, password);
     if (res.hasValue) {
       await SharedPrefs.setUser(res.value);
+      ref.invalidateSelf();
+    }
+    return res;
+  }
+
+  Future<AsyncValue<void>> logout() async {
+    state = AsyncValue.loading();
+    final res = await inject<AuthApi>().logout();
+    if (res.hasValue) {
+      await SharedPrefs.setUser(null);
       ref.invalidateSelf();
     }
     return res;

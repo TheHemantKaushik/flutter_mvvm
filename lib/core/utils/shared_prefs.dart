@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:async/async.dart';
 import 'package:flutter_mvvm/modules/user/models/user.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class SharedPrefs {
@@ -12,25 +12,22 @@ abstract class SharedPrefs {
     await prefs.clear();
   }
 
-  static Future<User> getUser() async {
-    final prefs = await SharedPreferences.getInstance();
-    final jsonStr = prefs.getString(_user);
-    return User.fromJson(jsonDecode(jsonStr!));
-    // return Result.capture(Future.microtask(() async {
-    //   final prefs = await SharedPreferences.getInstance();
-    //   final jsonStr = prefs.getString(_user);
-    //   return User.fromJson(jsonDecode(jsonStr!));
-    // }));
+  static Future<AsyncValue<User>> getUser() async {
+    return AsyncValue.guard(() async {
+      final prefs = await SharedPreferences.getInstance();
+      final jsonStr = prefs.getString(_user);
+      return User.fromJson(jsonDecode(jsonStr!));
+    });
   }
 
-  static Future<Result<void>> setUser(User? user) async {
-    return Result.capture(Future.microtask(() async {
+  static Future<AsyncValue<void>> setUser(User? user) async {
+    return AsyncValue.guard(() async {
       final prefs = await SharedPreferences.getInstance();
       if (user == null) {
         await prefs.remove(_user);
       } else {
         await prefs.setString(_user, jsonEncode(user.toJson()));
       }
-    }));
+    });
   }
 }

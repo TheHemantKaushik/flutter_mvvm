@@ -6,7 +6,7 @@ part of 'auth_manager.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authManagerHash() => r'2da8d549c554cfffcb58a0f5761dd7a32a08301c';
+String _$authManagerHash() => r'26f5249145ad69f4f07a17886fec11fc7d5eb663';
 
 /// See also [AuthManager].
 @ProviderFor(AuthManager)

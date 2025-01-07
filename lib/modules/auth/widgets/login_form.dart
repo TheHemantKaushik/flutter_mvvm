@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_mvvm/core/utils/dialog_utils.dart';
 import 'package:flutter_mvvm/core/widgets/filled_button_with_loading.dart';
-import 'package:flutter_mvvm/modules/auth/features/login/login_view_model.dart';
+import 'package:flutter_mvvm/modules/auth/view_models/login_form_view_model.dart';
+import 'package:flutter_mvvm/routes.g.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:routefly/routefly.dart';
 
-class LoginView extends HookConsumerWidget {
-  const LoginView({super.key});
+class LoginForm extends HookConsumerWidget {
+  const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,6 +30,7 @@ class LoginView extends HookConsumerWidget {
           data: (data) {
             final message = 'Logged in successfully';
             DialogUtils.showSnackbar(context, message, Type.success);
+            Routefly.replace(routePaths.path, rootNavigator: true);
           },
         );
       },

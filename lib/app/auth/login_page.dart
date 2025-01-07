@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm/modules/auth/features/login/login_view.dart';
+import 'package:flutter_mvvm/modules/auth/widgets/login_form.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class LoginPage extends HookConsumerWidget {
@@ -12,7 +12,7 @@ class LoginPage extends HookConsumerWidget {
         title: Text('Welcome Back!'),
         centerTitle: true,
       ),
-      body: LoginView(),
+      body: LoginForm(),
     );
   }
 }

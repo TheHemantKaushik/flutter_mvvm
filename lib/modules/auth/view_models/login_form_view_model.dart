@@ -2,8 +2,8 @@ import 'package:flutter_mvvm/modules/auth/auth_manager.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'login_view_model.freezed.dart';
-part 'login_view_model.g.dart';
+part 'login_form_view_model.freezed.dart';
+part 'login_form_view_model.g.dart';
 
 @freezed
 class LoginFormState with _$LoginFormState {
@@ -21,7 +21,10 @@ class LoginFormState with _$LoginFormState {
 class LoginViewModel extends _$LoginViewModel {
   @override
   FutureOr<LoginFormState> build() {
-    return LoginFormState();
+    return LoginFormState(
+      email: 'user@test.com',
+      password: '123456',
+    );
   }
 
   set email(String value) {

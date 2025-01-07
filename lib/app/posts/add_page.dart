@@ -6,7 +6,11 @@ class AddPostPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Add Post'),
+        centerTitle: true,
+      ),
       body: Center(
         child: Text('AddPostPage'),
       ),
