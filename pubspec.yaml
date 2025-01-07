@@ -11,18 +11,35 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
+
+  # APP STATE
   hooks_riverpod: ^2.6.1
+  flutter_hooks:
+  riverpod_annotation: ^2.6.1
+  freezed_annotation:
+
+  # DEPENDENCIES
   get_it: ^8.0.2
   injectable: ^2.5.0
+
+  # ROUTING
   routefly: ^2.0.4
+
+  # UTILS
   async: ^2.11.0
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  injectable_generator: ^2.6.2
-  build_runner: ^2.4.13
+  build_runner:
+  injectable_generator:
+  custom_lint:
+  riverpod_generator:
+  riverpod_lint:
+  freezed:
+  json_serializable:
 
 flutter:
   uses-material-design: true
